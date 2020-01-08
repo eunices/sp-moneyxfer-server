@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "20f1d1de-9ad7-4d30-9591-ea71c20f46e6",
+		"name": "moneyXfer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registration USER_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"John2\",\n\t\"email\": \"john3@test.com\",\n\t\"mobile\": \"sdfasdfasdfasdf\",\n\t\"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registration USER_2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"John2\",\n\t\"email\": \"john3@test.com\",\n\t\"mobile\": \"sdfasdfasdfasdf\",\n\t\"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "foo@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXhmZXJhcHAiLCJpYXQiOjE1NzgzOTQ0MzksInN1YiI6ImF1dGgiLCJyb2xlIjoidXNlciIsIm5hbWUiOiJmb29AdGVzdC5jb20iLCJpc3MiOiJtb25leXhmZXIuYXBwIiwiZXhwIjoxNTc4Mzk0NDk5fQ.bdWCv8WLeQFZXtMaMhi4IpON31HwwLhUPld6KPBAz-Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXhmZXJhcHAiLCJpYXQiOjE1NzM4MzEyNzgsInN1YiI6ImF1dGgiLCJyb2xlIjoidXNlciIsIm5hbWUiOiJmb29AdGVzdC5jb20iLCJpc3MiOiJtb25leXhmZXIuYXBwIiwiZXhwIjoxNTczODMxMzM4fQ.MjaqdDGQnz8IJn7d-45-zLk78cT2H1_rklO8BL8b2xY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\": 2891548,\n\t\"bankAccount\": \"testingbankaccount2\",\n\t\"senderId\": \"bar@test.com\",\n\t\"recipientId\": \"foo@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4NDY3MzAwLCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg0NjczNjB9.2KeYiGqG62uLsRhZEEK277Zm6UMXvxJKAE6XEa9fqZU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User v2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXhmZXJhcHAiLCJpYXQiOjE1NzgzOTQ0MzksInN1YiI6ImF1dGgiLCJyb2xlIjoidXNlciIsIm5hbWUiOiJmb29AdGVzdC5jb20iLCJpc3MiOiJtb25leXhmZXIuYXBwIiwiZXhwIjoxNTc4Mzk0NDk5fQ.bdWCv8WLeQFZXtMaMhi4IpON31HwwLhUPld6KPBAz-Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/v2/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"v2",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
