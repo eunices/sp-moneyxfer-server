@@ -8,7 +8,7 @@ Name: Eunice Soh
 ## For assignment submission purposes
 1. Eclipse Java Project archive (zip file): **ENTIRE FOLDER**
 2. MySQL Export (Data and Structure): `data_dump.sql`
-3. Postman collection with link to the various APIs to test: `postman_collection.json`
+3. Postman collection with link to the various APIs to test: `postman.json`
 
 Authentication is using JWT.
 
