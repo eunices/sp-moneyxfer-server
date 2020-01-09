@@ -1,0 +1,4 @@
+dbHostname=localhost
+dbSchema=<DATABASE_SCHEMA>
+dbUser=root
+dbPassword=<PASSWORD>
