@@ -25,22 +25,20 @@ With authentication `auth/` and a "main" application file `application/`.
 
 ## Endpoints
 
--  `/users` Signup
--  `/auth` Login
-- `/transactions` Transactions
-  - POST
-    ```json
-    { 
-        "Amount": 100,
-        "Currency": "SGD",
-        "BankAccount": <bankAccNo>,
-        "RecipientId": <userid>,
-        "SenderId": <userid>
-    }
-    ```
-  - GET
-  - 
-
+- POST `/users` Signup
+- GET `/users/<userId>` Get profile information
+- GET `/v2/users/<userId>` Get profile information (version 2)
+- POST `/auth` Login
+- POST `/transactions` Transactions
+  ```json
+  { 
+      "Amount": 100,
+      "Currency": "SGD",
+      "BankAccount": <bankAccNo>,
+      "RecipientId": <userid>,
+      "SenderId": <userid>
+  }
+  ```
 ## Learning points
 
 ### To create new project 
