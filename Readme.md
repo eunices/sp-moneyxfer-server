@@ -19,16 +19,16 @@ It is RESTful and follows Tiered Application Design consisting of Java `src/`:
 - Web services (routes) `resources/` ~~or `api/`~~ involving the routing of the APIs
 - Models (data objects) `models/`  ~~or `entities/`~~ involving the data structure of the models
 - Data persistence (database connection) `db/` ~~or `database/`~~ 
-- Business logic `managers/` or ~~`services/`~~ involving the models
+- Business logic ~~`managers/`~~ or `services/` involving the models
 
 With authentication `auth/` and a "main" application file `application/`.
 
 ## Endpoints
 
 - POST `/users` Signup
+- POST `/auth` Login
 - GET `/users/<userId>` Get profile information
 - GET `/v2/users/<userId>` Get profile information (version 2)
-- POST `/auth` Login
 - POST `/transactions` Transactions
   ```json
   { 
