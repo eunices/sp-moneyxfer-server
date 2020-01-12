@@ -59,3 +59,8 @@ With authentication `auth/` and a "main" application file `application/`.
   - Versioning of API
   - Object oriented programming using models
 - Created two versions, one with all the data (transactions and contacts), the other providing links.
+
+
+## todos:
+- fix date time format
+- consuming json for POSTing new user

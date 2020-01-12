@@ -85,13 +85,13 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "text/xml",
+						"value": "application/xml",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "<?xml version=\"1.0\"?>\n<Request\n\tname=\"XMLUSER\"\n\temail=\"xml@xml.com\"\n\tmobile=\"1241421241\"\n\tpassword=\"12345\"></Request>",
+					"raw": "<?xml version=\"1.0\"?>\n<CreateUser>\n    <Name>Jenson</Name>\n    <Email>xml@xml.com</Email>\n    <Mobile>12319581</Mobile>\n    <Password>12312515</Password>\n</CreateUser>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -163,7 +163,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4NzY1MjgyLCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg3NjUzNDJ9.RXSuC8z02vUg_N_wriuQv_Y0E6NGON4EFNEuGCzF9Vo",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODIzMjY0LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MjMzMjR9.2hLXEr35YWdazdq1gt-WQJydGnC42W1Kb4uVjdGOO6M",
 							"type": "string"
 						}
 					]
@@ -179,7 +179,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"amount\": 84,\n\t\"bankAccount\": \"testingbankaccount2\",\n\t\"senderId\": \"bar@test.com\",\n\t\"recipientId\": \"foo@test.com\"\n}",
+					"raw": "{\n\t\"amount\": 142,\n\t\"bankAccount\": \"testingbankaccount2\",\n\t\"senderId\": \"bar@test.com\",\n\t\"recipientId\": \"foo@test.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -256,7 +256,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODE5NTI1LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MTk1ODV9.y8R1poQaonEcq2Z7cyYXr9BTWrPHDfTEXhc69NYrcoQ",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODIzMjY0LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MjMzMjR9.2hLXEr35YWdazdq1gt-WQJydGnC42W1Kb4uVjdGOO6M",
 							"type": "string"
 						}
 					]
@@ -277,7 +277,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"alias\": \"Zed\",\n    \"contactId\": 4\n}",
+					"raw": "{\n    \"alias\": \"Test\",\n    \"contactId\": 6\n}",
 					"options": {
 						"raw": {
 							"language": "json"

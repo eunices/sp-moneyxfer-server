@@ -50,20 +50,20 @@ public class UserManager {
 	
 		try {
 			
-			String sql = "INSERT INTO `contacts` (alias, user_id, contact_id) VALUES " +
-					"(?, ?, ?)";
-//			String sql = "INSERT INTO `contacts` (`alias` , `user_id`, `contact_id`) " +
-//					"SELECT * FROM (SELECT ?, ?, ?) AS tmp " +
-//					"WHERE NOT EXISTS "+
-//					"(SELECT `user_id` FROM `contacts` WHERE `user_id` = ? AND `contact_id` = ?) LIMIT 1"; 
+//			String sql = "INSERT INTO `contacts` (alias, user_id, contact_id) VALUES " +
+//					"(?, ?, ?)";
+			String sql = "INSERT INTO `contacts` (`alias` , `user_id`, `contact_id`) " +
+					"SELECT * FROM (SELECT ?, ?, ?) AS tmp " +
+					"WHERE NOT EXISTS "+
+					"(SELECT `user_id` FROM `contacts` WHERE `user_id` = ? AND `contact_id` = ?) LIMIT 1"; 
 			Connection conn = ConnectionManager.Get();
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			stmt.setString(1, contact.Alias);
 			stmt.setInt(2, id);
 			stmt.setInt(3, contact.ContactId);
-//			stmt.setInt(4, id);
-//			stmt.setInt(5, contact.ContactId);
+			stmt.setInt(4, id);
+			stmt.setInt(5, contact.ContactId);
 			
 			
 			int i = stmt.executeUpdate();
