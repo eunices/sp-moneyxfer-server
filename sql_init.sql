@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `moneyxfer` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `moneyxfer`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: moneyxfer
@@ -53,7 +55,7 @@ CREATE TABLE `contacts` (
   `user_id` int(11) NOT NULL,
   `contact_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +64,7 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (1,'Nicky',1,2),(2,'Samy',1,3),(3,'Darren',1,4);
+INSERT INTO `contacts` VALUES (2,'Samy',5,3),(3,'Darren',5,4),(14,'Tammy',3,2),(15,'Kingston',3,1),(16,'Zed',3,4);
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +83,7 @@ CREATE TABLE `transactions` (
   `recipient_id` int(11) NOT NULL DEFAULT '0',
   `transaction_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +92,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (7,20,'xxxxxxxxxxx',3,4,'2019-11-15 15:19:35'),(8,1000,'testingbankaccount',3,4,'2019-11-15 15:20:13'),(9,123,'sdfasdfasdfads',1,4,'2019-11-15 15:21:28'),(10,2891548,'testingbankaccount2',4,3,'2019-11-15 15:21:36'),(11,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:51'),(12,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:52'),(13,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:53'),(14,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:53'),(15,2891548,'testingbankaccount2',4,3,'2020-01-11 18:13:13');
+INSERT INTO `transactions` VALUES (7,20,'xxxxxxxxxxx',3,4,'2019-11-15 15:19:35'),(8,1000,'testingbankaccount',3,4,'2019-11-15 15:20:13'),(9,123,'sdfasdfasdfads',1,4,'2019-11-15 15:21:28'),(10,2891548,'testingbankaccount2',4,3,'2019-11-15 15:21:36'),(11,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:51'),(12,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:52'),(13,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:53'),(14,2891548,'testingbankaccount2',4,3,'2020-01-11 17:54:53'),(15,2891548,'testingbankaccount2',4,3,'2020-01-11 18:13:13'),(16,2891548,'testingbankaccount2',4,3,'2020-01-12 08:54:48'),(17,2891548,'testingbankaccount2',4,3,'2020-01-12 09:15:41'),(18,201,'testingbankaccount2',4,3,'2020-01-12 09:15:48'),(19,5,'testingbankaccount2',4,3,'2020-01-12 09:15:52'),(20,115,'testingbankaccount2',4,3,'2020-01-12 09:15:55'),(21,215,'testingbankaccount2',4,3,'2020-01-12 09:15:58'),(22,72,'testingbankaccount2',4,3,'2020-01-12 09:16:00'),(23,35,'testingbankaccount2',4,3,'2020-01-12 09:16:04'),(24,100,'testingbankaccount2',4,3,'2020-01-12 09:16:07'),(25,21,'testingbankaccount2',4,3,'2020-01-12 09:16:09'),(26,75,'testingbankaccount2',4,3,'2020-01-12 09:16:12'),(27,65,'testingbankaccount2',4,3,'2020-01-12 09:16:14'),(28,26,'testingbankaccount2',4,3,'2020-01-12 09:16:17'),(29,789,'testingbankaccount2',4,3,'2020-01-12 09:16:21'),(30,152,'testingbankaccount2',4,3,'2020-01-12 09:16:24'),(31,2,'testingbankaccount2',4,3,'2020-01-12 09:16:49'),(32,167,'testingbankaccount2',4,3,'2020-01-12 09:16:52'),(33,1899,'testingbankaccount2',4,3,'2020-01-12 09:16:55'),(34,1899,'testingbankaccount2',4,3,'2020-01-12 09:17:45'),(35,115,'testingbankaccount2',4,3,'2020-01-12 09:17:49'),(36,52,'testingbankaccount2',4,3,'2020-01-12 09:17:56'),(37,15,'testingbankaccount2',4,3,'2020-01-12 09:17:58'),(38,84,'testingbankaccount2',4,3,'2020-01-12 09:18:01');
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-12  3:03:53
+-- Dump completed on 2020-01-12 17:18:27

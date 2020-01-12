@@ -7,18 +7,133 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.moneytransfer.models.CreateUser;
+import com.moneytransfer.models.AddContactModel;
+import com.moneytransfer.models.CreateUserModel;
+import com.moneytransfer.models.GetContactModel;
 import com.moneytransfer.models.GetTransactionModel;
+import com.moneytransfer.models.GetUserContactsModel;
 import com.moneytransfer.models.GetUserProfileModel;
+import com.moneytransfer.models.GetUserTransactionsModel;
 import com.moneytransfer.models.GetUserModel;
 import com.moneytransfer.db.ConnectionManager;
 
 
 public class UserManager {
+	
+	public String DeleteContact(int userId, int contactId) {
+		String result = "Contact was not deleted";
+	
+		try {
+			
+			String sql = "DELETE FROM `contacts` " +
+					"WHERE user_id = ? AND contact_id = ?";
+			Connection conn = ConnectionManager.Get();
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, userId);
+			stmt.setInt(2, contactId);
+			
+			int i = stmt.executeUpdate();
+			if (i>0){
+				result = "You have successfully deleted the contact";		
+			}
 
-	// used in v2 (profile + links)
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+				
+		return result;
+		}
+	
+	public String AddContact(AddContactModel contact, int id) {
+		String result = "Contact was not added";
+	
+		try {
+			
+			String sql = "INSERT INTO `contacts` (alias, user_id, contact_id) VALUES " +
+					"(?, ?, ?)";
+//			String sql = "INSERT INTO `contacts` (`alias` , `user_id`, `contact_id`) " +
+//					"SELECT * FROM (SELECT ?, ?, ?) AS tmp " +
+//					"WHERE NOT EXISTS "+
+//					"(SELECT `user_id` FROM `contacts` WHERE `user_id` = ? AND `contact_id` = ?) LIMIT 1"; 
+			Connection conn = ConnectionManager.Get();
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			stmt.setString(1, contact.Alias);
+			stmt.setInt(2, id);
+			stmt.setInt(3, contact.ContactId);
+//			stmt.setInt(4, id);
+//			stmt.setInt(5, contact.ContactId);
+			
+			
+			int i = stmt.executeUpdate();
+			if (i>0){
+				result = "You have successfully added the contact";		
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+				
+		return result;
+		}
+	
+	public GetUserTransactionsModel GetUserTransactions(int id) {
+		
+		GetUserTransactionsModel transactions = new GetUserTransactionsModel();
+		
+		try {
+			Connection conn = ConnectionManager.Get();
+			PreparedStatement stmt = conn.prepareStatement("SELECT amount, bank_account, transaction_date, recipient_id, sender_id FROM `transactions` " 
+					+ "WHERE recipient_id = ? OR sender_id = ?");
+			stmt.setInt(1, id);
+			stmt.setInt(2, id);
+			ResultSet rsTransactions = stmt.executeQuery();
+			while (rsTransactions.next()) {
+				GetTransactionModel tx = new GetTransactionModel();
+				tx.Amount = rsTransactions.getDouble("amount");
+				tx.BankAccount = rsTransactions.getString("bank_account");
+				tx.TransactionDate = rsTransactions.getDate("transaction_date");
+				tx.RecipientId = rsTransactions.getInt("recipient_id");
+				tx.SenderId = rsTransactions.getInt("sender_id");
+				transactions.Transactions.add(tx);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return transactions;
+	}
+
+	public GetUserContactsModel GetUserContacts(int id) {
+		
+		GetUserContactsModel contacts = new GetUserContactsModel();
+		
+		try {
+			Connection conn = ConnectionManager.Get();
+			PreparedStatement stmt = conn.prepareStatement("SELECT alias, user_id, contact_id FROM `contacts`" 
+					+ " WHERE user_id = ?");
+			stmt.setInt(1, id);
+			ResultSet rsContacts = stmt.executeQuery();
+			while (rsContacts.next()) {
+				GetContactModel tx = new GetContactModel();
+				tx.Alias = rsContacts.getString("alias");
+				tx.UserId = rsContacts.getInt("user_id");
+				tx.ContactId = rsContacts.getInt("contact_id");
+				
+				contacts.Contacts.add(tx);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return contacts;
+	}
+
 	
 	public GetUserProfileModel GetUserProfile(int id) {
+		// used in v2 (profile + links)	
+		
 		GetUserProfileModel profile = new GetUserProfileModel();
 		
 		try {
@@ -32,8 +147,8 @@ public class UserManager {
 				profile.Email = rsUser.getString("email");
 				profile.Phone = rsUser.getString("phone");
 			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 		return profile;
@@ -58,35 +173,47 @@ public class UserManager {
 				user.Profile.Email = rsUser.getString("email");
 				user.Profile.Phone = rsUser.getString("phone");
 			} else {
-				// failed somehow??.. 
 				isGetUserSuccess = false;
 			}
 			
 			if (isGetUserSuccess) {
 				// get transactions of user from transactions table
-				stmt = conn.prepareStatement("SELECT * FROM `transactions`" 
-								+ " WHERE recipientid = ? OR senderid = ?");
+				stmt = conn.prepareStatement("SELECT amount, bank_account, transaction_date, recipient_id, sender_id FROM `transactions` " 
+								+ "WHERE recipient_id = ? OR sender_id = ?");
 				stmt.setInt(1, id);
 				stmt.setInt(2, id);
 				ResultSet rsTransactions = stmt.executeQuery();
 				while (rsTransactions.next()) {
 					GetTransactionModel tx = new GetTransactionModel();
 					tx.Amount = rsTransactions.getDouble("amount");
-					tx.BankAccount = rsTransactions.getString("bankAccount");
-					tx.TransactionDate = rsTransactions.getDate("transactionDate");
-					
+					tx.BankAccount = rsTransactions.getString("bank_account");
+					tx.TransactionDate = rsTransactions.getDate("transaction_date");
+					tx.RecipientId = rsTransactions.getInt("recipient_id");
+					tx.SenderId = rsTransactions.getInt("sender_id");
 					user.Transactions.add(tx);
+				}
+				
+				stmt = conn.prepareStatement("SELECT alias, user_id, contact_id FROM `contacts`" 
+						+ " WHERE user_id = ?");
+				stmt.setInt(1, id);
+				ResultSet rsContacts = stmt.executeQuery();
+				while (rsContacts.next()) {
+					GetContactModel tx = new GetContactModel();
+					tx.Alias = rsContacts.getString("alias");
+					tx.UserId = rsContacts.getInt("user_id");
+					tx.ContactId = rsContacts.getInt("contact_id");
+					user.Contacts.add(tx);
 				}
 			}
 			
-		} catch(SQLException ex) {
-			ex.printStackTrace();
+		} catch(SQLException e) {
+			e.printStackTrace();
 		}
 		
 		return user;
 	}
 	
-	public Boolean IsEmailUsed(CreateUser user) {
+	public Boolean IsEmailUsed(CreateUserModel user) {
 		Boolean isEmailUsed = false;
 		
 		try {
@@ -132,7 +259,7 @@ public class UserManager {
 		return isValid;
 	}
 	
-	public int CreateUser(CreateUser user) {
+	public int CreateUser(CreateUserModel user) {
 		
 		int createdUser = 0;
 		

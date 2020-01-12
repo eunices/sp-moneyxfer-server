@@ -10,8 +10,9 @@ public class GetUserModel { // v1
 	
 	public GetUserModel() {
 		this.Profile = new GetUserProfileModel();
-		this.Transactions = new ArrayList();
-		this.Contacts = new ArrayList();
+		this.Transactions = new ArrayList<GetTransactionModel>();
+		this.Contacts = new ArrayList<GetContactModel>();
 	}
+	
 
 }

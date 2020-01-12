@@ -2,7 +2,7 @@ package com.moneytransfer.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddTransaction {
+public class AddTransactionModel {
 
 	@JsonProperty("amount")
 	public double Amount;

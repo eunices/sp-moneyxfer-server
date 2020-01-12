@@ -1,10 +1,8 @@
 package com.moneytransfer.models;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GetTransactionModel { // v1
+public class UpdateTransactionModel {
 
 	@JsonProperty("amount")
 	public double Amount;
@@ -13,12 +11,9 @@ public class GetTransactionModel { // v1
 	public String BankAccount;
 
 	@JsonProperty("senderId")
-	public int SenderId;
+	public String SenderId;
 	
 	@JsonProperty("recipientId")
-	public int RecipientId;
-	
-	@JsonProperty("transactionDate")
-	public Date TransactionDate;
+	public String RecipientId;
 
 }

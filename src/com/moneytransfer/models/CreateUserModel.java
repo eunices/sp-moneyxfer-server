@@ -1,8 +1,12 @@
 package com.moneytransfer.models;
 
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CreateUser {
+@XmlRootElement(name = "CreateUser")
+public class CreateUserModel {
 
 	@JsonProperty("name")
 	public String Name;

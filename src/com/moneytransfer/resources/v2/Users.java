@@ -1,5 +1,7 @@
 package com.moneytransfer.resources.v2;
 
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -7,7 +9,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import com.moneytransfer.models.v2.GetUserModel;
+import com.moneytransfer.models.GetUserContactsModel;
 import com.moneytransfer.models.GetUserProfileModel;
+import com.moneytransfer.models.GetUserTransactionsModel;
 import com.moneytransfer.models.Link;
 
 import com.moneytransfer.services.UserManager;
@@ -32,17 +36,35 @@ public class Users extends com.moneytransfer.resources.Users {
 		// Add transaction links
 		Link linkTransactions = new Link();
 		linkTransactions.Label = "Transactions";
-		linkTransactions.Url = "/users/" + id + "/transactions";
+		linkTransactions.Url = "v2/users/" + id + "/transactions";
 		linkTransactions.Method = "GET";
 		user.Links.add(linkTransactions);
 
 		// Add contact links
 		Link linkContacts = new Link();
 		linkContacts.Label = "Contacts";
-		linkContacts.Url = "/users/" + id + "/contacts";
+		linkContacts.Url = "v2/users/" + id + "/contacts";
 		linkContacts.Method = "GET";
 		user.Links.add(linkContacts);
 		
+		return Response.ok(user).build();
+	}
+	
+	@GET
+	@Path("{id}/transactions")
+	@RolesAllowed("user")
+	@Consumes("application/json")
+	public Response GetUserTransactions(@PathParam("id") int id) {
+		GetUserTransactionsModel user = manager.GetUserTransactions(id);
+		return Response.ok(user).build();
+	}
+	
+	@GET
+	@Path("{id}/contacts")
+	@RolesAllowed("user")
+	@Consumes("application/json")
+	public Response GetUserContacts(@PathParam("id") int id) {
+		GetUserContactsModel user = manager.GetUserContacts(id);
 		return Response.ok(user).build();
 	}
 
