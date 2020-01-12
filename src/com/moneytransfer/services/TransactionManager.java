@@ -56,6 +56,10 @@ public class TransactionManager {
 	public String Update(UpdateTransactionModel transaction, int id) {
 		String result = "Transaction was not updated";
 	
+		// returns 0 if not found
+		int senderId = GetUserId(transaction.SenderId); 
+		int recipientId = GetUserId(transaction.RecipientId);
+		
 		try {
 			
 			String sql = "UPDATE transactions set " +
@@ -66,8 +70,8 @@ public class TransactionManager {
 			
 			stmt.setDouble(1, transaction.Amount);
 			stmt.setString(2, transaction.BankAccount);
-			stmt.setString(3, transaction.SenderId);
-			stmt.setString(4, transaction.RecipientId);
+			stmt.setInt(3, senderId);
+			stmt.setInt(4, recipientId);
 			stmt.setInt(5, id);
 			
 			int i = stmt.executeUpdate();

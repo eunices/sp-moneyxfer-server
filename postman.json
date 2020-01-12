@@ -202,7 +202,7 @@
 			"response": []
 		},
 		{
-			"name": "UPDATE Transactions",
+			"name": "PUT Transactions",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -225,7 +225,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"amount\": 123,\n\t\"bankAccount\": \"sdfasdfasdfads\",\n\t\"senderId\": 1,\n\t\"recipientId\": 4\n}",
+					"raw": "{\n    \"amount\": 123,\n    \"bankAccount\": \"sdfasdfasdfads\",\n    \"senderId\": \"bar@test.com\",\n    \"recipientId\": \"foo@test.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -256,7 +256,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODIzMjY0LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MjMzMjR9.2hLXEr35YWdazdq1gt-WQJydGnC42W1Kb4uVjdGOO6M",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODMyNzM3LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MzI3OTd9.cufam0ozPP8gy09GtymuhbI5g0lrV6hpG2UZJPxLZUI",
 							"type": "string"
 						}
 					]
@@ -285,7 +285,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/3/contact",
+					"raw": "http://localhost:8080/MoneyTransfer/users/3/contacts",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -295,7 +295,7 @@
 						"MoneyTransfer",
 						"users",
 						"3",
-						"contact"
+						"contacts"
 					]
 				}
 			},
@@ -329,7 +329,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/1/contact/300",
+					"raw": "http://localhost:8080/MoneyTransfer/users/3/contacts/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -338,9 +338,9 @@
 					"path": [
 						"MoneyTransfer",
 						"users",
-						"1",
-						"contact",
-						"300"
+						"3",
+						"contacts",
+						"5"
 					]
 				}
 			},
@@ -354,7 +354,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODAwMjU2LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MDAzMTZ9.90-hMY0y92wwsdNQ2gJxP3cllS7tDsYpmijZ6TDC5to",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODMyNzM3LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MzI3OTd9.cufam0ozPP8gy09GtymuhbI5g0lrV6hpG2UZJPxLZUI",
 							"type": "string"
 						}
 					]
@@ -368,7 +368,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/5",
+					"raw": "http://localhost:8080/MoneyTransfer/users/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -377,7 +377,7 @@
 					"path": [
 						"MoneyTransfer",
 						"users",
-						"5"
+						"4"
 					]
 				}
 			},

@@ -46,6 +46,8 @@ public class UserManager {
 		}
 	
 	public String AddContact(AddContactModel contact, int id) {
+		
+		// TODO: could be made better if an array of contacts is added
 		String result = "Contact was not added";
 	
 		try {

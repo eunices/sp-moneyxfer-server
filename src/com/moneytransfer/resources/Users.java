@@ -53,7 +53,7 @@ public class Users {
 	}
 
 	@DELETE
-	@Path("{id}/contact/{contactId}")
+	@Path("{id}/contacts/{contactId}")
 	@RolesAllowed("user")
 	@Consumes("application/json")
 	public Response DeleteContact(@PathParam("id") int id, 
@@ -63,7 +63,7 @@ public class Users {
 	}
 	
 	@POST
-	@Path("{id}/contact")
+	@Path("{id}/contacts")
 	@RolesAllowed("user")
 	@Consumes("application/json")
 	public Response AddContact(AddContactModel contact, @PathParam("id") int id) {	

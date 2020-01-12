@@ -3,7 +3,7 @@
 This is a moneyXfer web services app that allows you to transfer money to others. Create for PDC2 of Specialist Diploma in Mobile Applications.
 
 ## Student details
-Name: Eunice Soh
+Soh Jia Yu, Eunice (p7265742)
 
 ## For assignment submission purposes
 1. Eclipse Java Project archive (zip file): **ENTIRE FOLDER**
@@ -29,16 +29,29 @@ With authentication `auth/` and a "main" application file `application/`.
 - POST `/auth` Login
 - GET `/users/<userId>` Get profile information
 - GET `/v2/users/<userId>` Get profile information (version 2)
-- POST `/transactions` Transactions
+- GET `/v2/users/<userId>/transactions?page=<page>&pageSize=<pageSize>` Get transactions
+- GET `/v2/users/<userId>/contacts` Get contacts
+- POST `/v2/users/<userId>/contacts` Add contact
+- DELETE `/users/<userId>/contact/<contactIdToDelete>` Delete contact
+- POST `/transactions` Add transactions
   ```json
-  { 
-      "Amount": 100,
-      "Currency": "SGD",
-      "BankAccount": <bankAccNo>,
-      "RecipientId": <userid>,
-      "SenderId": <userid>
-  }
+    {
+      "amount": 142,
+      "bankAccount": "testingbankaccount2",
+      "senderId": "bar@test.com",
+      "recipientId": "foo@test.com"
+    }
   ```
+- PUT `/transactions` Update transactions
+  ```json
+    {
+      "amount": 123,
+      "bankAccount": "sdfasdfasdfads",
+      "senderId": "bar@test.com",
+      "recipientId": "foo@test.com"
+    }
+  ```
+
 ## Learning points
 
 ### To create new project 
@@ -53,14 +66,17 @@ With authentication `auth/` and a "main" application file `application/`.
 - Can use basic or JWT authentication
 - Filters must be defined in the app
 
-### Profile page
+### Profile
 - Concepts learnt:
   - Content negotiation: to send in json/ xml
   - Versioning of API
   - Object oriented programming using models
 - Created two versions, one with all the data (transactions and contacts), the other providing links.
 
+### Transactions and contacts
+- Prevent duplicate entries for contacts
 
-## todos:
-- fix date time format
-- consuming json for POSTing new user
+## Todos:
+- Fix: Date time format for transactionDate
+- Fix: Consuming XML for POSTing new user
+- Improvement: Array of contacts to be added
