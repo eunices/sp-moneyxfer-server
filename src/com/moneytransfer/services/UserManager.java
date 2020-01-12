@@ -78,16 +78,24 @@ public class UserManager {
 		return result;
 		}
 	
-	public GetUserTransactionsModel GetUserTransactions(int id) {
+	public GetUserTransactionsModel GetUserTransactions(int id, int page, int pageSize) {
 		
 		GetUserTransactionsModel transactions = new GetUserTransactionsModel();
 		
 		try {
 			Connection conn = ConnectionManager.Get();
-			PreparedStatement stmt = conn.prepareStatement("SELECT amount, bank_account, transaction_date, recipient_id, sender_id FROM `transactions` " 
-					+ "WHERE recipient_id = ? OR sender_id = ?");
+			String sql = "SELECT amount, bank_account, transaction_date, recipient_id, sender_id "+
+					"FROM `transactions` " + 
+					"WHERE recipient_id = ? OR sender_id = ? " + 
+					"ORDER BY transaction_date " +
+					"LIMIT ? OFFSET ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.setInt(2, id);
+			stmt.setInt(3, pageSize);
+			stmt.setInt(4, (page-1)*pageSize);
+
+			
 			ResultSet rsTransactions = stmt.executeQuery();
 			while (rsTransactions.next()) {
 				GetTransactionModel tx = new GetTransactionModel();

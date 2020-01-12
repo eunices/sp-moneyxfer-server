@@ -422,6 +422,55 @@
 			"response": []
 		},
 		{
+			"name": "GET User v2 Transactions w Pagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODIxNTk3LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MjE2NTd9.4kpdqIjlmS6t3gXQdbR2eSIscr8vnFbJ6wZGqlGseT8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/MoneyTransfer/v2/users/4/transactions?page=2&pageSize=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoneyTransfer",
+						"v2",
+						"users",
+						"4",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET User v2 Transactions",
 			"request": {
 				"auth": {
@@ -429,7 +478,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODE2MDY1LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MTYxMjV9.vukrDwCtXJETwen9ANYH7watyCVwNKNHl5_Bv6uaoOQ",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJtb25leXRyYW5zZmVyIiwiaWF0IjoxNTc4ODIxNTk3LCJzdWIiOiJhdXRoIiwicm9sZSI6InVzZXIiLCJuYW1lIjoiZm9vQHRlc3QuY29tIiwiaXNzIjoibW9uZXl0cmFuc2Zlci5jb20iLCJleHAiOjE1Nzg4MjE2NTd9.4kpdqIjlmS6t3gXQdbR2eSIscr8vnFbJ6wZGqlGseT8",
 							"type": "string"
 						}
 					]

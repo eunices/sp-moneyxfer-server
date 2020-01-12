@@ -6,7 +6,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import com.moneytransfer.models.v2.GetUserModel;
 import com.moneytransfer.models.GetUserContactsModel;
@@ -54,8 +56,26 @@ public class Users extends com.moneytransfer.resources.Users {
 	@Path("{id}/transactions")
 	@RolesAllowed("user")
 	@Consumes("application/json")
-	public Response GetUserTransactions(@PathParam("id") int id) {
-		GetUserTransactionsModel user = manager.GetUserTransactions(id);
+	public Response GetUserTransactions(@PathParam("id") int id, 
+										@Context UriInfo info) {
+		
+		int page;
+		int pageSize;
+		
+		try {
+			page = Integer.parseInt(info.getQueryParameters().getFirst("page"));
+		} catch (Exception e) {
+			page = 1;
+		}
+		
+		try {
+			pageSize = Integer.parseInt(info.getQueryParameters().getFirst("pageSize"));
+		} catch (Exception e) {
+			pageSize = 10;
+		}
+	    
+	    
+		GetUserTransactionsModel user = manager.GetUserTransactions(id, page, pageSize);
 		return Response.ok(user).build();
 	}
 	
