@@ -21,7 +21,7 @@ public class Users {
 	private UserManager manager = new UserManager();
 	
 	@POST
-	@Consumes({"application/json", "text/xml"})
+	@Consumes({"application/json", "application/xml"})
 	public Response CreateUser(CreateUserModel user) {
 		String result = null;
 		
