@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"John2\",\n\t\"email\": \"john3@test.com\",\n\t\"mobile\": \"sdfasdfasdfasdf\",\n\t\"password\": \"12345\"\n}",
+					"raw": "{\n\t\"name\": \"John2\",\n\t\"email\": \"john100@test.com\",\n\t\"mobile\": \"sdfasdfasdfasdf\",\n\t\"password\": \"12345\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,12 +27,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users"
@@ -63,12 +61,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users"
@@ -99,12 +95,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users"
@@ -141,12 +135,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/auth",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/auth",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"auth"
@@ -187,12 +179,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/transactions",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/transactions",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"transactions"
@@ -233,12 +223,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/transactions/9",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/transactions/9",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"transactions",
@@ -285,12 +273,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/3/contacts",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users/3/contacts",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users",
@@ -329,12 +315,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/3/contacts/5",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users/3/contacts/5",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users",
@@ -368,12 +352,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/users/4",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/users/4",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"users",
@@ -405,12 +387,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/v2/users/3",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/v2/users/3",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"v2",
@@ -443,12 +423,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/v2/users/4/transactions?page=2&pageSize=2",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/v2/users/4/transactions?page=2&pageSize=2",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"v2",
@@ -492,12 +470,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/v2/users/4/transactions",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/v2/users/4/transactions",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"v2",
@@ -531,12 +507,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/MoneyTransfer/v2/users/5/contacts",
-					"protocol": "http",
+					"raw": "{{host}}/MoneyTransfer/v2/users/5/contacts",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"MoneyTransfer",
 						"v2",
