@@ -27,12 +27,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users",
+					"raw": "{{host}}/users",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users"
 					]
 				}
@@ -61,12 +60,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users",
+					"raw": "{{host}}/users",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users"
 					]
 				}
@@ -95,12 +93,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users",
+					"raw": "{{host}}/users",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users"
 					]
 				}
@@ -135,12 +132,11 @@
 					]
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/auth",
+					"raw": "{{host}}/auth",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"auth"
 					]
 				}
@@ -179,12 +175,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/transactions",
+					"raw": "{{host}}/transactions",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"transactions"
 					]
 				}
@@ -223,12 +218,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/transactions/9",
+					"raw": "{{host}}/transactions/9",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"transactions",
 						"9"
 					]
@@ -273,12 +267,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users/3/contacts",
+					"raw": "{{host}}/users/3/contacts",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users",
 						"3",
 						"contacts"
@@ -315,12 +308,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users/3/contacts/5",
+					"raw": "{{host}}/users/3/contacts/5",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users",
 						"3",
 						"contacts",
@@ -352,12 +344,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/users/4",
+					"raw": "{{host}}/users/4",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"users",
 						"4"
 					]
@@ -387,12 +378,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/v2/users/3",
+					"raw": "{{host}}/v2/users/3",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"v2",
 						"users",
 						"3"
@@ -423,12 +413,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/v2/users/4/transactions?page=2&pageSize=2",
+					"raw": "{{host}}/v2/users/4/transactions?page=2&pageSize=2",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"v2",
 						"users",
 						"4",
@@ -470,12 +459,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/v2/users/4/transactions",
+					"raw": "{{host}}/v2/users/4/transactions",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"v2",
 						"users",
 						"4",
@@ -507,12 +495,11 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/MoneyTransfer/v2/users/5/contacts",
+					"raw": "{{host}}/v2/users/5/contacts",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"MoneyTransfer",
 						"v2",
 						"users",
 						"5",
