@@ -39,13 +39,25 @@ public class ConnectionManager {
 				e.printStackTrace();
 			} 
 			
+			String connectionString = "jdbc:mysql://" + dbHostname + "/" + dbSchema + "?" +
+                    "user=" + dbUser + "&password=" + dbPassword + 
+                    "&useSSL=false&serverTimezone=UTC" +
+					   "&allowPublicKeyRetrieval=true";
+			
+		    try {
+		    	connectionString = System.getenv().get("CLEARDB_DATABASE_URL");
+		    } catch (Exception e) {
+		    	
+		    }
+			
 			// connect to database
 			try {
 			    conn =
-			       DriverManager.getConnection("jdbc:mysql://" + dbHostname + "/" + dbSchema + "?" +
-			                                   "user=" + dbUser + "&password=" + dbPassword + 
-			                                   "&useSSL=false&serverTimezone=UTC" +
-			    		   					   "&allowPublicKeyRetrieval=true");
+			       DriverManager.getConnection(connectionString);
+			    
+
+			    
+			    
 			} catch (SQLException e) {
 			    // handle any errors
 			    System.out.println("SQLException: " + e.getMessage());

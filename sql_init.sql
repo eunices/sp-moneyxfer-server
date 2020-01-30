@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `moneyxfer` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `moneyxfer`;
+CREATE DATABASE  IF NOT EXISTS `heroku_45743bf16334ae8` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `heroku_45743bf16334ae8`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: moneyxfer
+-- Host: localhost    Database: heroku_45743bf16334ae8
 -- ------------------------------------------------------
 -- Server version	5.7.20-log
 
