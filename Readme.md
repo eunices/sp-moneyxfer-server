@@ -23,6 +23,10 @@ It is RESTful and follows Tiered Application Design consisting of Java `src/`:
 
 With authentication `auth/` and a "main" application file `application/`.
 
+## Deployment on heroku using ClearDB
+
+https://young-refuge-19913.herokuapp.com/
+
 ## Endpoints
 
 - POST `/users` Signup
