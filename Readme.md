@@ -27,6 +27,8 @@ With authentication `auth/` and a "main" application file `application/`.
 
 https://young-refuge-19913.herokuapp.com/
 
+- To deploy use `mvn clean heroku:deploy-war`
+
 ## Endpoints
 
 - POST `/users` Signup
