@@ -31,12 +31,6 @@ https://young-refuge-19913.herokuapp.com/
 
 - POST `/users` Signup
 - POST `/auth` Login
-- GET `/users/<userId>` Get profile information
-- GET `/v2/users/<userId>` Get profile information (version 2)
-- GET `/v2/users/<userId>/transactions?page=<page>&pageSize=<pageSize>` Get transactions
-- GET `/v2/users/<userId>/contacts` Get contacts
-- POST `/v2/users/<userId>/contacts` Add contact
-- DELETE `/users/<userId>/contact/<contactIdToDelete>` Delete contact
 - POST `/transactions` Add transactions
   ```json
     {
@@ -55,6 +49,14 @@ https://young-refuge-19913.herokuapp.com/
       "recipientId": "foo@test.com"
     }
   ```
+- GET `/users/<userId>` Get profile information
+- GET `/v2/users/<userId>` Get profile information (version 2)
+- GET `/v2/users/<userId>/transactions?page=<page>&pageSize=<pageSize>` Get transactions
+
+- GET `/v2/users/<userId>/contacts` Get contacts
+- POST `/v2/users/<userId>/contacts` Add contact
+- DELETE `/users/<userId>/contact/<contactIdToDelete>` Delete contact
+- POST `/contact` Add contact
 
 ## Learning points
 
