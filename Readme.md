@@ -56,9 +56,8 @@ https://young-refuge-19913.herokuapp.com/
 - GET `/v2/users/<userId>/transactions?page=<page>&pageSize=<pageSize>` Get transactions
 
 - GET `/v2/users/<userId>/contacts` Get contacts
-- POST `/v2/users/<userId>/contacts` Add contact
+- POST `/users/<userId>/contacts` Add contact
 - DELETE `/users/<userId>/contact/<contactIdToDelete>` Delete contact
-- POST `/contact` Add contact
 
 ## Learning points
 
