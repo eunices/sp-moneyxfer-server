@@ -84,6 +84,6 @@ https://young-refuge-19913.herokuapp.com/
 - Prevent duplicate entries for contacts
 
 ## Todos:
-- Fix: Date time format for transactionDate
+~~- Fix: Date time format for transactionDate~~ (use String)
 - Fix: Consuming XML for POSTing new user
 - Improvement: Array of contacts to be added

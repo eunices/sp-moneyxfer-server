@@ -1,5 +1,6 @@
 package com.moneytransfer.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +20,6 @@ public class GetTransactionModel { // v1
 	public int RecipientId;
 	
 	@JsonProperty("transactionDate")
-	public Date TransactionDate;
+	public String TransactionDate;
 
 }

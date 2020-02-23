@@ -46,6 +46,7 @@ public class Users {
 	
 	@GET
 	@Path("{id}")
+	@RolesAllowed("user")
 	@Produces("application/json")
 	public Response GetOne(@PathParam("id") int id) {
 		GetUserModel user = manager.GetUser(id);

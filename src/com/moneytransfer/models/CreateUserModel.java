@@ -8,20 +8,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @XmlRootElement(name = "CreateUser")
 public class CreateUserModel {
 
-	@XmlAttribute(name = "Name")
 	@JsonProperty("name")
+	@XmlAttribute(name = "Name")
 	public String Name;
 
-	@XmlAttribute(name = "Email")
 	@JsonProperty("email")
+	@XmlAttribute(name = "Email")
 	public String Email;
 
-	@XmlAttribute(name = "Mobile")
 	@JsonProperty("mobile")
+	@XmlAttribute(name = "Mobile")
 	public String Mobile;
 	
-	@XmlAttribute(name = "Password")
 	@JsonProperty("password")
+	@XmlAttribute(name = "Password")
 	public String Password;
 
 }

@@ -6,6 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import com.moneytransfer.models.AddContactModel;
 import com.moneytransfer.models.CreateUserModel;
@@ -80,7 +85,7 @@ public class UserManager {
 		return result;
 		}
 	
-	public GetUserTransactionsModel GetUserTransactions(int id, int page, int pageSize) {
+	public GetUserTransactionsModel GetUserTransactions(int id, int page, int pageSize) throws ParseException {
 		
 		GetUserTransactionsModel transactions = new GetUserTransactionsModel();
 		
@@ -103,7 +108,26 @@ public class UserManager {
 				GetTransactionModel tx = new GetTransactionModel();
 				tx.Amount = rsTransactions.getDouble("amount");
 				tx.BankAccount = rsTransactions.getString("bank_account");
-				tx.TransactionDate = rsTransactions.getDate("transaction_date");
+				
+				// create date formatters
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+				DateFormat sgtFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+				sgtFormat.setTimeZone(TimeZone.getTimeZone("Asia/Singapore"));
+				
+				Date date = null;
+				String sgtString = null;
+				try {
+					// convert to datetime in UTC
+					date = formatter.parse(rsTransactions.getString("transaction_date"));
+					// convert back to SGT
+					sgtString = sgtFormat.format(date);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				tx.TransactionDate = sgtString;
+				
 				tx.RecipientId = rsTransactions.getInt("recipient_id");
 				tx.SenderId = rsTransactions.getInt("sender_id");
 				transactions.Transactions.add(tx);
@@ -197,7 +221,26 @@ public class UserManager {
 					GetTransactionModel tx = new GetTransactionModel();
 					tx.Amount = rsTransactions.getDouble("amount");
 					tx.BankAccount = rsTransactions.getString("bank_account");
-					tx.TransactionDate = rsTransactions.getDate("transaction_date");
+					
+					// create date formatters
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+					DateFormat sgtFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+					sgtFormat.setTimeZone(TimeZone.getTimeZone("Asia/Singapore"));
+					
+					Date date = null;
+					String sgtString = null;
+					try {
+						// convert to datetime in UTC
+						date = formatter.parse(rsTransactions.getString("transaction_date"));
+						// convert back to SGT
+						sgtString = sgtFormat.format(date);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					
+					tx.TransactionDate = sgtString;
+					
 					tx.RecipientId = rsTransactions.getInt("recipient_id");
 					tx.SenderId = rsTransactions.getInt("sender_id");
 					user.Transactions.add(tx);

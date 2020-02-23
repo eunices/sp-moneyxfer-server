@@ -1,5 +1,7 @@
 package com.moneytransfer.resources.v2;
 
+import java.text.ParseException;
+
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -26,6 +28,7 @@ public class Users extends com.moneytransfer.resources.Users {
 	@Override
 	@GET
 	@Path("{id}")
+	@RolesAllowed("user")
 	@Produces("application/json")
 	public Response GetOne(@PathParam("id") int id) {
 
@@ -74,8 +77,15 @@ public class Users extends com.moneytransfer.resources.Users {
 			pageSize = 10;
 		}
 	    
-	    
-		GetUserTransactionsModel user = manager.GetUserTransactions(id, page, pageSize);
+		GetUserTransactionsModel user = null;
+		try {
+			user = manager.GetUserTransactions(id, page, pageSize);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return Response.ok(user).build();
 	}
 	
